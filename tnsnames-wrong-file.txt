@@ -1,0 +1,3 @@
+
+Cannot connect due to private tnsnames.ora being incorrect
+

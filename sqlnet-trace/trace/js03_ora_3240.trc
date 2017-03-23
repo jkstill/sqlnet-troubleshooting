@@ -1,0 +1,32 @@
+Trace file /u01/app/oracle/diag/rdbms/js03/js03/trace/js03_ora_3240.trc
+Oracle Database 11g Enterprise Edition Release 11.2.0.4.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+ORACLE_HOME = /u01/app/oracle/product/11.2.0/db
+System name:	Linux
+Node name:	ora11net01.jks.com
+Release:	2.6.32-100.34.1.el6uek.x86_64
+Version:	#1 SMP Wed May 25 17:46:45 EDT 2011
+Machine:	x86_64
+Instance name: js03
+Redo thread mounted by this instance: 1
+Oracle process number: 22
+Unix process pid: 3240, image: oracle@ora11net01.jks.com
+
+
+*** 2014-11-16 09:23:09.054
+*** SESSION ID:(32.25) 2014-11-16 09:23:09.054
+*** CLIENT ID:() 2014-11-16 09:23:09.054
+*** SERVICE NAME:(js03) 2014-11-16 09:23:09.054
+*** MODULE NAME:(perl@poirot (TNS V1-V3)) 2014-11-16 09:23:09.054
+*** ACTION NAME:() 2014-11-16 09:23:09.054
+ 
+Received ORADEBUG command (#1) 'dump sqlnet_server_trace 16' from process 'Unix process pid: 3134, image: <none>'
+
+*** 2014-11-16 09:23:09.054
+Finished processing ORADEBUG command (#1) 'dump sqlnet_server_trace 16'
+
+*** 2014-11-16 09:23:21.890
+Received ORADEBUG command (#2) 'tracefile_name' from process 'Unix process pid: 3134, image: <none>'
+
+*** 2014-11-16 09:23:21.890
+Finished processing ORADEBUG command (#2) 'tracefile_name'

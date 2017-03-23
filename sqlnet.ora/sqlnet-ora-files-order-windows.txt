@@ -1,0 +1,105 @@
+X:\zips\Windows_Utilities\Tracing\NtTrace\NtTrace-x64\NtTrace>nttrace tnsping js03 | find /i ".ora"
+
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\sqlnet.ora", Attributes=0x1ac8a0 [ARCHIVE] ) => 0
+
+NtCreateFile( FileHandle=0x1ac5f8 [0x120], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\Oracle\sqlnet.ora", IoStatusBlock=0x1ac608 [0/1], AllocationSize=null, FileAttributes=0
+x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\sqlnet.ora", Attributes=0x1ac700 [ARCHIVE] ) => 0
+
+NtCreateFile( FileHandle=0x1ac458 [0x120], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\Oracle\sqlnet.ora", IoStatusBlock=0x1ac468 [0/1], AllocationSize=null, FileAttributes=0
+x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+
+NtQueryAttributesFile( ObjectAttributes="\??\X:\zips\Windows_Utilities\Tracing\NtTrace\NtTrace-x64\NtTrace\tnsnames.ora", Attributes=0x1aba60 ) => 0xc0000034 [2 'The system cannot find the file specif
+ied.']
+
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\tnsnames.ora", Attributes=0x1abb70 [ARCHIVE] ) => 0
+
+NtQueryDirectoryFile( FileHandle=0x120, Event=0, ApcRoutine=null, ApcContext=null, IoStatusBlock=0x1ab1b8 [0/0x76], FileInformation=0x1ab200, Length=0x268, FileInformationClass=3 [FileBothDirectoryInf
+ormation], ReturnSingleEntry=true, FileName="tnsnames.ora", RestartScan=false ) => 0
+NtCreateFile( FileHandle=0x1ab528 [0x120], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\Oracle\tnsnames.ora", IoStatusBlock=0x1ab538 [0/1], AllocationSize=null, FileAttributes
+=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+C:\Oracle\sqlnet.ora
+
+
+======================
+
+
+Why C:\Oracle?
+
+That is TNS_ADMIN
+
+X:\zips\Windows_Utilities\Tracing\NtTrace\NtTrace-x64\NtTrace>echo %TNS_ADMIN%
+C:\Oracle
+
+##########################################################
+
+=== Without TNS_ADMIN ====
+
+X:\zips\Windows_Utilities\Tracing\NtTrace\NtTrace-x64\NtTrace>nttrace tnsping js03 | find /i ".ora"
+
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora", Attributes=0x2fccf0 [ARCHIVE] ) => 0
+NtCreateFile( FileHandle=0x2fca48 [0x120], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora", IoStatusBlock=0x2fca58 [0/1], A
+llocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora", Attributes=0x2fcb50 [ARCHIVE] ) => 0
+NtCreateFile( FileHandle=0x2fc8a8 [0x120], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora", IoStatusBlock=0x2fc8b8 [0/1], A
+llocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+
+NtQueryAttributesFile( ObjectAttributes="\??\X:\zips\Windows_Utilities\Tracing\NtTrace\NtTrace-x64\NtTrace\tnsnames.ora", Attributes=0x2fbeb0 ) => 0xc0000034 [2 'The system cannot find the file specif
+ied.']
+
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\tnsnames.ora", Attributes=0x2fbfc0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtCreateFile( FileHandle=0x2faa38, DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\oracle\product\12.1.0\client\ldap\admin\fips.ora", IoStatusBlock=0x2faa48, AllocationSize=null,
+ FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\ldap\admin\ldap.ora", Attributes=0x2fae90 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\ldap.ora", Attributes=0x2fae90 ) => 0xc0000034 [2 'The system cannot find the file specified.'] C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora
+
+How to Set or Switch Oracle Homes on Windows (Doc ID 969581.1)
+
+##############################################################
+
+
+### 11g
+
+X:\zips\Windows_Utilities\Tracing\NtTrace\NtTrace-x64\NtTrace>nttrace C:\Oracle\product\11gR2\BIN\tnsping junk | find /i ".ora"
+
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\sqlnet.ora", Attributes=0x12cf20 [ARCHIVE] ) => 0
+NtCreateFile( FileHandle=0x12cc38 [0x190], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\sqlnet.ora", IoStatusBlock=0x12cc48 [0/1], AllocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\sqlnet.ora", Attributes=0x12cda0 [ARCHIVE] ) => 0
+NtCreateFile( FileHandle=0x12cab8 [0x190], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\sqlnet.ora", IoStatusBlock=0x12cac8 [0/1], AllocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+NtQueryAttributesFile( ObjectAttributes="\??\X:\zips\Windows_Utilities\Tracing\NtTrace\NtTrace-x64\NtTrace\tnsnames.ora", Attributes=0x12c0d0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\tnsnames.ora", Attributes=0x12c1e0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtCreateFile( FileHandle=0x129c88, DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\Oracle\product\11gR2\ldap\admin\fips.ora", IoStatusBlock=0x129c98, AllocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\product\11gR2\ldap\admin\ldap.ora", Attributes=0x12b0b0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\ldap.ora", Attributes=0x12b0b0 [ARCHIVE] ) => 0
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\ldap.ora", Attributes=0x12b080 [ARCHIVE] ) => 0
+NtCreateFile( FileHandle=0x12afa8 [0x2a0], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\ldap.ora", IoStatusBlock=0x12afb8 [0/1], AllocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\product\11gR2\ldap\admin\ldap.ora", Attributes=0x12b0b0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\ldap.ora", Attributes=0x12b0b0 [ARCHIVE] ) => 0
+NtQueryAttributesFile( ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\ldap.ora", Attributes=0x12b080 [ARCHIVE] ) => 0
+NtCreateFile( FileHandle=0x12afa8 [0x2a0], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\Oracle\product\11gR2\network\admin\ldap.ora", IoStatusBlock=0x12afb8 [0/1], AllocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+
+C:\Oracle\product\11gR2\network\admin\sqlnet.ora
+
+
+### 12c
+
+X:\zips\Windows_Utilities\Tracing\NtTrace\NtTrace-x64\NtTrace>nttrace C:\Oracle\product\12.1.0\client\bin\tnsping junk | find /i ".ora"
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora", Attributes=0x1ccdf0 [ARCHIVE] ) => 0
+NtCreateFile( FileHandle=0x1ccb48 [0x120], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora", IoStatusBlock=0x1ccb58 [0/1], AllocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora", Attributes=0x1ccc50 [ARCHIVE] ) => 0
+NtCreateFile( FileHandle=0x1cc9a8 [0x120], DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora", IoStatusBlock=0x1cc9b8 [0/1], A
+llocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0
+NtQueryAttributesFile( ObjectAttributes="\??\X:\zips\Windows_Utilities\Tracing\NtTrace\NtTrace-x64\NtTrace\tnsnames.ora", Attributes=0x1cbfb0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\tnsnames.ora", Attributes=0x1cc0c0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtCreateFile( FileHandle=0x1cab38, DesiredAccess=SYNCHRONIZE|GENERIC_READ|0x80, ObjectAttributes="\??\C:\oracle\product\12.1.0\client\ldap\admin\fips.ora", IoStatusBlock=0x1cab48, AllocationSize=null, FileAttributes=0x80, ShareAccess=3, CreateDisposition=1, CreateOptions=0x60, EaBuffer=null, EaLength=0 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\ldap\admin\ldap.ora", Attributes=0x1caf90 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+NtQueryAttributesFile( ObjectAttributes="\??\C:\oracle\product\12.1.0\client\network\admin\ldap.ora", Attributes=0x1caf90 ) => 0xc0000034 [2 'The system cannot find the file specified.']
+
+C:\oracle\product\12.1.0\client\network\admin\sqlnet.ora
+
+
+

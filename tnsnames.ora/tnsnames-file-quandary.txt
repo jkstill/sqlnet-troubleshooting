@@ -1,0 +1,101 @@
+(standard output removed for clarity)
+
+#### Successful tnsping 
+
+without strace:
+
+[jkstill@ora11net01 ~]$ strace -e trace=open,access,stat tnsping js03 2>&1  >/dev/null | grep '\.ora'
+access("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", F_OK) = 0
+open("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", O_RDONLY) = 3
+access("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", F_OK) = 0
+open("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", O_RDONLY) = 3
+access("/home/jkstill/.tnsnames.ora", F_OK) = 0
+access("/etc/tnsnames.ora", F_OK)       = -1 ENOENT (No such file or directory)
+access("/u01/app/oracle/product/11.2.0/db/network/admin/tnsnames.ora", F_OK) = 0
+stat("/home/jkstill/.tnsnames.ora", {st_mode=S_IFREG|0664, st_size=488, ...}) = 0
+open("/home/jkstill/.tnsnames.ora", O_RDONLY) = 3
+stat("/u01/app/oracle/product/11.2.0/db/network/admin/tnsnames.ora", {st_mode=S_IFREG|0640, st_size=627, ...}) = 0
+open("/u01/app/oracle/product/11.2.0/db/network/admin/tnsnames.ora", O_RDONLY) = 3
+
+###############################################################
+
+#### Unsuccessful tnsping 
+
+Oracle will not look at OH/network/admin/tnsnames.ora if /etc/tnsnames.ora exists
+
+as root:  
+  touch /etc/tnsnames.ora
+[root@ora11net01 etc]# touch tnsnames.ora
+[root@ora11net01 etc]# chmod +r /etc/tnsnames.ora
+[root@ora11net01 etc]# ls -l /etc/tnsnames.ora
+-rw-r--r-- 1 root root 0 Nov  9 14:13 /etc/tnsnames.ora
+
+# now run tnsping again - 
+
+without strace: TNS-12543
+
+# with ldap.ora in place
+[jkstill@ora11net01 ~]$ tnsping js03
+
+Used LDAP adapter to resolve the alias
+Attempting to contact (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=ora12102a.jks.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=js03.jks.com)))
+TNS-12543: TNS:destination host unreachable
+
+# without ldap.ora - tns-3505
+
+TNS-03505: Failed to resolve name
+
+##### WITHOUT ldap.ora
+
+
+# strace 
+
+[jkstill@ora11net01 ~]$ strace -e trace=open,access,stat tnsping js03 2>&1  >/dev/null | grep '\.ora'
+access("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", F_OK) = 0
+open("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", O_RDONLY) = 3
+access("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", F_OK) = 0
+open("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", O_RDONLY) = 3
+access("/home/jkstill/.tnsnames.ora", F_OK) = -1 ENOENT (No such file or directory)
+access("/etc/tnsnames.ora", F_OK)       = 0
+stat("/etc/tnsnames.ora", {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+open("/etc/tnsnames.ora", O_RDONLY)     = 3
+open("/u01/app/oracle/product/11.2.0/db/ldap/admin/fips.ora", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/u01/app/oracle/product/11.2.0/db/ldap/admin/ldap.ora", 0x7fff10691f70) = -1 ENOENT (No such file or directory)
+stat("/u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora", 0x7fff10691f70) = -1 ENOENT (No such file or directory)
+
+
+#### WITH ldap.ora
+
+Used LDAP adapter to resolve the alias
+Attempting to contact (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=ora12102a.jks.com)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=js03.jks.com)))
+TNS-12543: TNS:destination host unreachable
+
+[jkstill@ora11net01 ~]$ strace -e trace=open,access,stat tnsping js03 2>&1  >/dev/null | grep '\.ora'
+access("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", F_OK) = 0
+open("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", O_RDONLY) = 3
+access("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", F_OK) = 0
+open("/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora", O_RDONLY) = 3
+access("/home/jkstill/.tnsnames.ora", F_OK) = -1 ENOENT (No such file or directory)
+access("/etc/tnsnames.ora", F_OK)       = 0
+stat("/etc/tnsnames.ora", {st_mode=S_IFREG|0644, st_size=0, ...}) = 0
+open("/etc/tnsnames.ora", O_RDONLY)     = 3
+open("/u01/app/oracle/product/11.2.0/db/ldap/admin/fips.ora", O_RDONLY) = -1 ENOENT (No such file or directory)
+stat("/u01/app/oracle/product/11.2.0/db/ldap/admin/ldap.ora", 0x7fff89cdd280) = -1 ENOENT (No such file or directory)
+stat("/u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+stat("/u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+open("/u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora", O_RDONLY) = 6
+stat("/u01/app/oracle/product/11.2.0/db/ldap/admin/ldap.ora", 0x7fff89cdd280) = -1 ENOENT (No such file or directory)
+stat("/u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+stat("/u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora", {st_mode=S_IFREG|0644, st_size=114, ...}) = 0
+open("/u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora", O_RDONLY) = 6
+
+
+######
+
+Search Order for TNS files - listener.ora, sqlnet.ora, tnsnames.ora ..etc. (Doc ID 464410.1)
+What Is The Search Order For The LDAP.ORA File ? (Doc ID 363283.1)
+https://docs.oracle.com/cd/B28359_01/server.111/b32009/cnfg_net_srv.htm#UNXAR200
+
+It does not seem to be documented that /etc/tnsnames.ora prevents the use of OH/network/admin/tnsnames.ora
+
+########################

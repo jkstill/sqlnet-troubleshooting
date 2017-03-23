@@ -1,0 +1,164 @@
+
+
+################################
+## Trace what the client sees ##
+################################
+
+Client 12.1.0.2
+Server 12.1.0.2
+
+Working in ora12102b - 192.168.1.92
+
+## Set on client side
+
+diag_adr_enabled=ON
+
+trace_directory_client=/u02/app/oracle/product/12.1.0/db/network/log/client
+trace_level_client=SUPPORT
+trace_unique_client=ON
+
+connecting to remote server, trace files are on local server:
+
+/u02/app/oracle/diag/clients/user_jkstill/host_1677177908_82/trace/ora_17616_139857910961600.trc
+
+Timestamps *ARE* correct;
+
+trcasst -ocu -e0 -s /u02/app/oracle/diag/clients/user_jkstill/host_1677177908_82/trace/ora_17616_139857910961600.trc
+  ---> Send 240 bytes - Connect packet  timestamp=016-03-01 14:05:11.446107
+
+
+--- change DIAG_ADR_ENABLED
+
+diag_adr_enabled=OFF
+
+No client side trace file was created
+
+===================================================================================
+
+Client 11.2.0.3
+Server 12.1.0.2
+
+Working in ora12102b - 192.168.1.92
+
+## Set on client side
+
+diag_adr_enabled=ON
+
+trace_directory_client=/u02/app/oracle/product/12.1.0/db/network/log/client
+trace_level_client=SUPPORT
+trace_unique_client=ON
+
+Cannot find any trace files in /home/oracle/app/oracle/diag or /u02/app/oracle/product/12.1.0/db/network/log/client
+
+---- change diag_adr_enabled
+
+diag_adr_enabled=OFF
+
+no trace files found
+
+====================================================================================
+
+Client 11.2.0.4
+Server 12.1.0.2
+
+Working in ora12102b - 192.168.1.92
+
+## Set on client side
+#include in sqlnet.ora to get trace files in sqlnet trace dir
+
+diag_adr_enabled=ON
+
+trace_directory_client = /u01/app/oracle/product/11.2.0/db/network/log/client
+
+trace_level_client = SUPPORT
+trace_unique_client = ON
+
+# ON|TRUE|OFF|FALSE
+trace_timestamp_client = ON
+trace_timestamp_server = ON
+
+No  trace files found
+
+---- change diag_adr_enabled
+
+diag_adr_enabled=OFF
+
+Trace file created in /u01/app/oracle/product/11.2.0/db/network/log/client
+/u01/app/oracle/product/11.2.0/db/network/log/client/cli_19614.trc
+
+Timestamps are *NOT* correct:
+
+trcasst -ocu -e0 -s /u01/app/oracle/product/11.2.0/db/network/log/client/cli_19614.trc
+  <--- Received 8 bytes - Resend packet  timestamp=01-MAR-2016 14:28:56:652
+
+
+###################################################################################
+
+
+################################
+## Trace what the server sees ##
+################################
+
+Client 11.2.0.3
+Server 12.1.0.2
+
+Working in ora12102b - 192.168.1.92
+
+## Set on server side
+
+diag_adr_enabled=ON
+
+trace_directory_client=/u02/app/oracle/product/12.1.0/db/network/log/client
+trace_level_client=SUPPORT
+trace_unique_client=ON
+
+[oracle@ora12102b admin]$ ls -l /u01/app/oracle/diag/rdbms/js03/js03/trace/*30321.tr?
+-rw-r----- 1 oracle sysasm 322776 Mar  1 14:42 /u01/app/oracle/diag/rdbms/js03/js03/trace/js03_ora_30321.trc
+-rw-r----- 1 oracle sysasm  54488 Mar  1 14:42 /u01/app/oracle/diag/rdbms/js03/js03/trace/js03_ora_30321.trm
+
+--- change DIAG_ADR_ENABLED
+
+diag_adr_enabled=OFF
+
+1 trace file
+
+[oracle@ora12102b admin]$ ls -la /u01/app/oracle/product/12.1.0/db1/network/log/server/*30307*.trc
+-rw-r----- 1 oracle sysasm 325235 Mar  1 14:42 /u01/app/oracle/product/12.1.0/db1/network/log/server/svr_30307_ff.trc
+
+
+==========================================
+
+Client 12.1.0.2
+Server 12.1.0.2
+
+Working in ora12102b - 192.168.1.92
+
+## Set on server side
+
+diag_adr_enabled=ON
+
+trace_directory_client=/u02/app/oracle/product/12.1.0/db/network/log/client
+trace_level_client=SUPPORT
+trace_unique_client=ON
+
+[oracle@ora12102b admin]$ ls -l /u01/app/oracle/diag/rdbms/js03/js03/trace/*30415.tr?
+-rw-r----- 1 oracle sysasm 304678 Mar  1 14:49 /u01/app/oracle/diag/rdbms/js03/js03/trace/js03_ora_30415.trc
+-rw-r----- 1 oracle sysasm  50349 Mar  1 14:49 /u01/app/oracle/diag/rdbms/js03/js03/trace/js03_ora_30415.trm
+
+--- change DIAG_ADR_ENABLED
+
+diag_adr_enabled=OFF
+
+1 trace files 
+
+[oracle@ora12102b admin]$ l /u01/app/oracle/product/12.1.0/db1/network/log/server/*30428*.trc
+-rw-r----- 1 oracle sysasm 299142 Mar  1 14:49 /u01/app/oracle/product/12.1.0/db1/network/log/server/svr_30428_ff.trc
+
+Timestamps *ARE* correct.
+
+trcasst -ocu -e0 -s /u01/app/oracle/diag/rdbms/js03/js03/trace/js03_ora_30415.trc
+  <--- Received 240 bytes - Connect packet  timestamp=016-03-01 17:49:00.785950
+
+trcasst -ocu -e0 -s /u01/app/oracle/product/12.1.0/db1/network/log/server/svr_30428_ff.trc
+  <--- Received 240 bytes - Connect packet  timestamp=01-MAR-2016 17:49:51:868
+

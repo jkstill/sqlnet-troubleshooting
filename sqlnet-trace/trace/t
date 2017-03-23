@@ -1,0 +1,438 @@
+
+Trace Assistant Utility: Version 11.2.0.3.0 Production on November 15, 2014 5:18:07 PM
+
+Copyright (c) 2001, 2011, Oracle.  All rights reserved.
+
+
+    *************************************************************************
+    *                        Trace Assistant                                *
+    *************************************************************************
+
+                                                                    Bytes  Bytes
+                                                                     Sent   Rcvd
+
+<--- Received 190 bytes - Connect packet  timestamp=014-11-15 16:44:06.389016
+Connect data length: 132
+Connect Data: 
+    (ADDRESS=(PROTOCOL=beq)(PROGRAM=/u01/app/oracle/product/11.2.0/db/bin/
+    tnslsnr)(ENVS=)(ARGV0=)(ARGS='LISTENER,-inherit')(DETACH=yes))
+
+---> Send 32 bytes - Accept packet  timestamp=014-11-15 16:44:06.409381
+Connect data length: 487
+
+---> Send 497 bytes - Data packet  timestamp=014-11-15 16:44:06.409638
+    TNSLSNR for Linux: Version 11.2.0.4.0 - Production
+    System parameter file is /u01/app/oracle/product/11.2.0/db/network/adm
+    in/listener.ora
+    Log messages written to /u01/app/oracle/diag/tnslsnr/ora11net01/listen
+    er/alert/log.xml
+    Trace information written to /u01/app/oracle/diag/tnslsnr/ora11net01/l
+    istener/trace/ora_6252_140137077524224.trc
+    Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=EXTPROC1521)))
+    Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(POR
+    T=1521)))
+
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:06.414970
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 61 bytes - Redirect packet  timestamp=014-11-15 16:44:06.416030
+Redirect data length: 51
+Redirect Data: 
+    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=#6252.2)))
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:06.419615
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 77 bytes - Accept packet  timestamp=014-11-15 16:44:06.420845
+Connect data length: 45
+Connect data: (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0))
+
+<--- Received 11 bytes - Marker packet  timestamp=014-11-15 16:44:06.421771
+
+---> Send 973 bytes - Data packet  timestamp=014-11-15 16:44:06.423249
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0)(ALIAS=LISTENER)(SECURITY=
+    ON: Local OS Authentication)(VERSION=TNSLSNR for Linux: Version 11.2.0
+    .4.0 - Production)(START_DATE=15-NOV-2014 16:44:06)(SIDNUM=1)(LOGFILE=
+    /u01/app/oracle/diag/tnslsnr/ora11net01/listener/alert/log.xml)(TRACEF
+    ILE=/u01/app/oracle/diag/tnslsnr/ora11net01/listener/trace/ora_6252_14
+    0137077524224.trc)(PRMFILE=/u01/app/oracle/product/11.2.0/db/network/a
+    dmin/listener.ora)(TRACING=support)(UPTIME=8)(SNMP=OFF)(PID=6252)(STAR
+    T_DATE_NUM=2014-11-15 16:44:06)),,(ENDPOINT=(HANDLER=(HANDLER_MAXLOAD=
+    0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F632-1
+    86C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(PROT
+    OCOL=ipc)(KEY=EXTPROC1521))))),,(ENDPOINT=(HANDLER=(HANDLER_MAXLOAD=0)
+    (HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F633-186
+    C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(PROTOC
+    OL=tcp)(HOST=localhost)(PORT=1521))))),,(ENDPOINT=),,
+
+---> Send 10 bytes - Data packet  timestamp=014-11-15 16:44:06.424919
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:08.681761
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 61 bytes - Redirect packet  timestamp=014-11-15 16:44:08.682788
+Redirect data length: 51
+Redirect Data: 
+    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=#6252.2)))
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:08.688297
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 77 bytes - Accept packet  timestamp=014-11-15 16:44:08.689287
+Connect data length: 45
+Connect data: (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0))
+
+<--- Received 11 bytes - Marker packet  timestamp=014-11-15 16:44:08.690866
+
+---> Send 975 bytes - Data packet  timestamp=014-11-15 16:44:08.692528
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0)(ALIAS=LISTENER)(SECURITY=
+    ON: Local OS Authentication)(VERSION=TNSLSNR for Linux: Version 11.2.0
+    .4.0 - Production)(START_DATE=15-NOV-2014 16:44:06)(SIDNUM=1)(LOGFILE=
+    /u01/app/oracle/diag/tnslsnr/ora11net01/listener/alert/log.xml)(TRACEF
+    ILE=/u01/app/oracle/diag/tnslsnr/ora11net01/listener/trace/ora_6252_14
+    0137077524224.trc)(PRMFILE=/u01/app/oracle/product/11.2.0/db/network/a
+    dmin/listener.ora)(TRACING=support)(UPTIME=235)(SNMP=OFF)(PID=6252)(ST
+    ART_DATE_NUM=2014-11-15 16:44:06)),,(ENDPOINT=(HANDLER=(HANDLER_MAXLOA
+    D=0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F632
+    -186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(PR
+    OTOCOL=ipc)(KEY=EXTPROC1521))))),,(ENDPOINT=(HANDLER=(HANDLER_MAXLOAD=
+    0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F633-1
+    86C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(PROT
+    OCOL=tcp)(HOST=localhost)(PORT=1521))))),,(ENDPOINT=),,
+
+---> Send 10 bytes - Data packet  timestamp=014-11-15 16:44:08.695827
+
+<--- Received 206 bytes - Connect packet  timestamp=014-11-15 16:44:15.971397
+Connect data length: 148
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(SID=js03)(CID=(PROGRAM=perl)(HOST=ora11net
+    01.jks.com)(USER=oracle)))(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(Port
+    =1521)))
+
+---> Send 103 bytes - Refuse packet  timestamp=014-11-15 16:44:15.972911
+User return code: 34
+System return code: 0
+Refuse data length: 91
+Refuse data: 
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=12505)(ERROR_STACK=(ERROR=(C
+    ODE=12505)(EMFI=4))))
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:30.703184
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 61 bytes - Redirect packet  timestamp=014-11-15 16:44:30.705203
+Redirect data length: 51
+Redirect Data: 
+    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=#6252.2)))
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:30.710825
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 77 bytes - Accept packet  timestamp=014-11-15 16:44:30.711572
+Connect data length: 45
+Connect data: (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0))
+
+<--- Received 11 bytes - Marker packet  timestamp=014-11-15 16:44:30.712473
+
+---> Send 976 bytes - Data packet  timestamp=014-11-15 16:44:30.713656
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0)(ALIAS=LISTENER)(SECURITY=
+    ON: Local OS Authentication)(VERSION=TNSLSNR for Linux: Version 11.2.0
+    .4.0 - Production)(START_DATE=15-NOV-2014 16:44:06)(SIDNUM=1)(LOGFILE=
+    /u01/app/oracle/diag/tnslsnr/ora11net01/listener/alert/log.xml)(TRACEF
+    ILE=/u01/app/oracle/diag/tnslsnr/ora11net01/listener/trace/ora_6252_14
+    0137077524224.trc)(PRMFILE=/u01/app/oracle/product/11.2.0/db/network/a
+    dmin/listener.ora)(TRACING=support)(UPTIME=2437)(SNMP=OFF)(PID=6252)(S
+    TART_DATE_NUM=2014-11-15 16:44:06)),,(ENDPOINT=(HANDLER=(HANDLER_MAXLO
+    AD=0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F63
+    2-186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(P
+    ROTOCOL=ipc)(KEY=EXTPROC1521))))),,(ENDPOINT=(HANDLER=(HANDLER_MAXLOAD
+    =0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F633-
+    186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(PRO
+    TOCOL=tcp)(HOST=localhost)(PORT=1521))))),,(ENDPOINT=),,
+
+---> Send 10 bytes - Data packet  timestamp=014-11-15 16:44:30.716174
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:43.499274
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 61 bytes - Redirect packet  timestamp=014-11-15 16:44:43.500431
+Redirect data length: 51
+Redirect Data: 
+    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=#6252.2)))
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:43.505351
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 77 bytes - Accept packet  timestamp=014-11-15 16:44:43.506042
+Connect data length: 45
+Connect data: (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0))
+
+<--- Received 11 bytes - Marker packet  timestamp=014-11-15 16:44:43.507592
+
+---> Send 976 bytes - Data packet  timestamp=014-11-15 16:44:43.508462
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0)(ALIAS=LISTENER)(SECURITY=
+    ON: Local OS Authentication)(VERSION=TNSLSNR for Linux: Version 11.2.0
+    .4.0 - Production)(START_DATE=15-NOV-2014 16:44:06)(SIDNUM=1)(LOGFILE=
+    /u01/app/oracle/diag/tnslsnr/ora11net01/listener/alert/log.xml)(TRACEF
+    ILE=/u01/app/oracle/diag/tnslsnr/ora11net01/listener/trace/ora_6252_14
+    0137077524224.trc)(PRMFILE=/u01/app/oracle/product/11.2.0/db/network/a
+    dmin/listener.ora)(TRACING=support)(UPTIME=3716)(SNMP=OFF)(PID=6252)(S
+    TART_DATE_NUM=2014-11-15 16:44:06)),,(ENDPOINT=(HANDLER=(HANDLER_MAXLO
+    AD=0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F63
+    2-186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(P
+    ROTOCOL=ipc)(KEY=EXTPROC1521))))),,(ENDPOINT=(HANDLER=(HANDLER_MAXLOAD
+    =0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F633-
+    186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(PRO
+    TOCOL=tcp)(HOST=localhost)(PORT=1521))))),,(ENDPOINT=),,
+
+---> Send 10 bytes - Data packet  timestamp=014-11-15 16:44:43.511028
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:47.453337
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 61 bytes - Redirect packet  timestamp=014-11-15 16:44:47.455288
+Redirect data length: 51
+Redirect Data: 
+    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=#6252.2)))
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:47.459961
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 77 bytes - Accept packet  timestamp=014-11-15 16:44:47.460748
+Connect data length: 45
+Connect data: (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0))
+
+<--- Received 11 bytes - Marker packet  timestamp=014-11-15 16:44:47.462739
+
+---> Send 976 bytes - Data packet  timestamp=014-11-15 16:44:47.464269
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0)(ALIAS=LISTENER)(SECURITY=
+    ON: Local OS Authentication)(VERSION=TNSLSNR for Linux: Version 11.2.0
+    .4.0 - Production)(START_DATE=15-NOV-2014 16:44:06)(SIDNUM=1)(LOGFILE=
+    /u01/app/oracle/diag/tnslsnr/ora11net01/listener/alert/log.xml)(TRACEF
+    ILE=/u01/app/oracle/diag/tnslsnr/ora11net01/listener/trace/ora_6252_14
+    0137077524224.trc)(PRMFILE=/u01/app/oracle/product/11.2.0/db/network/a
+    dmin/listener.ora)(TRACING=support)(UPTIME=4112)(SNMP=OFF)(PID=6252)(S
+    TART_DATE_NUM=2014-11-15 16:44:06)),,(ENDPOINT=(HANDLER=(HANDLER_MAXLO
+    AD=0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F63
+    2-186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(P
+    ROTOCOL=ipc)(KEY=EXTPROC1521))))),,(ENDPOINT=(HANDLER=(HANDLER_MAXLOAD
+    =0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F633-
+    186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(PRO
+    TOCOL=tcp)(HOST=localhost)(PORT=1521))))),,(ENDPOINT=),,
+
+---> Send 10 bytes - Data packet  timestamp=014-11-15 16:44:47.467213
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:48.931322
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 61 bytes - Redirect packet  timestamp=014-11-15 16:44:48.932341
+Redirect data length: 51
+Redirect Data: 
+    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=#6252.2)))
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:48.935890
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 77 bytes - Accept packet  timestamp=014-11-15 16:44:48.937204
+Connect data length: 45
+Connect data: (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0))
+
+<--- Received 11 bytes - Marker packet  timestamp=014-11-15 16:44:48.938195
+
+---> Send 976 bytes - Data packet  timestamp=014-11-15 16:44:48.939407
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0)(ALIAS=LISTENER)(SECURITY=
+    ON: Local OS Authentication)(VERSION=TNSLSNR for Linux: Version 11.2.0
+    .4.0 - Production)(START_DATE=15-NOV-2014 16:44:06)(SIDNUM=1)(LOGFILE=
+    /u01/app/oracle/diag/tnslsnr/ora11net01/listener/alert/log.xml)(TRACEF
+    ILE=/u01/app/oracle/diag/tnslsnr/ora11net01/listener/trace/ora_6252_14
+    0137077524224.trc)(PRMFILE=/u01/app/oracle/product/11.2.0/db/network/a
+    dmin/listener.ora)(TRACING=support)(UPTIME=4259)(SNMP=OFF)(PID=6252)(S
+    TART_DATE_NUM=2014-11-15 16:44:06)),,(ENDPOINT=(HANDLER=(HANDLER_MAXLO
+    AD=0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F63
+    2-186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(P
+    ROTOCOL=ipc)(KEY=EXTPROC1521))))),,(ENDPOINT=(HANDLER=(HANDLER_MAXLOAD
+    =0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F633-
+    186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(PRO
+    TOCOL=tcp)(HOST=localhost)(PORT=1521))))),,(ENDPOINT=),,
+
+---> Send 10 bytes - Data packet  timestamp=014-11-15 16:44:48.941240
+
+<--- Received 104 bytes - Connect packet  timestamp=014-11-15 16:44:56.425495
+Connect data length: 46
+Connect Data: 
+    (CONNECT_DATA=(COMMAND=service_register_NSGR))
+
+---> Send 52 bytes - Accept packet  timestamp=014-11-15 16:44:56.426311
+Connect data length: 20
+Connect data: (DESCRIPTION=(TMP=))
+
+<--- Received 5354 bytes - Data packet  timestamp=014-11-15 16:44:56.427559
+
+---> Send 554 bytes - Data packet  timestamp=014-11-15 16:44:56.440254
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:56.704874
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 61 bytes - Redirect packet  timestamp=014-11-15 16:44:56.706519
+Redirect data length: 51
+Redirect Data: 
+    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=#6252.2)))
+
+<--- Received 208 bytes - Connect packet  timestamp=014-11-15 16:44:56.712171
+Connect data length: 150
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=status)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=18
+    6647552)))
+
+---> Send 77 bytes - Accept packet  timestamp=014-11-15 16:44:56.713695
+Connect data length: 45
+Connect data: (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0))
+
+<--- Received 11 bytes - Marker packet  timestamp=014-11-15 16:44:56.714367
+
+---> Send 1137 bytes - Data packet  timestamp=014-11-15 16:44:56.714918
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0)(ALIAS=LISTENER)(SECURITY=
+    ON: Local OS Authentication)(VERSION=TNSLSNR for Linux: Version 11.2.0
+    .4.0 - Production)(START_DATE=15-NOV-2014 16:44:06)(SIDNUM=1)(LOGFILE=
+    /u01/app/oracle/diag/tnslsnr/ora11net01/listener/alert/log.xml)(TRACEF
+    ILE=/u01/app/oracle/diag/tnslsnr/ora11net01/listener/trace/ora_6252_14
+    0137077524224.trc)(PRMFILE=/u01/app/oracle/product/11.2.0/db/network/a
+    dmin/listener.ora)(TRACING=support)(UPTIME=5037)(SNMP=OFF)(PID=6252)(S
+    TART_DATE_NUM=2014-11-15 16:44:06)),,(ENDPOINT=(HANDLER=(HANDLER_MAXLO
+    AD=0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F63
+    2-186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(P
+    ROTOCOL=ipc)(KEY=EXTPROC1521))))),,(ENDPOINT=(HANDLER=(HANDLER_MAXLOAD
+    =0)(HANDLER_LOAD=0)(ESTABLISHED=0)(REFUSED=0)(HANDLER_ID=07F028C8F633-
+    186C-E055-000000000001)(PRE=any)(SESSION=NS)(DESCRIPTION=(ADDRESS=(PRO
+    TOCOL=tcp)(HOST=localhost)(PORT=1521))))),,(ENDPOINT=),,(SERVICE=(SERV
+    ICE_NAME=js03)(INSTANCE=(INSTANCE_NAME=js03)(NUM=2)(NUMREL=1))),,(SERV
+    ICE=(SERVICE_NAME=js03XDB)(INSTANCE=(INSTANCE_NAME=js03)(NUM=2)(NUMREL
+    =1))),,
+
+---> Send 10 bytes - Data packet  timestamp=014-11-15 16:44:56.717583
+
+<--- Received 222 bytes - Connect packet  timestamp=014-11-15 16:45:02.344269
+Connect data length: 164
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(SERVICE_NAME=junk)(CID=(PROGRAM=sqlplus)(H
+    OST=ora11203fs.jks.com)(USER=jkstill)))(ADDRESS=(PROTOCOL=TCP)(HOST=19
+    2.168.1.47)(PORT=1521)))
+
+---> Send 103 bytes - Refuse packet  timestamp=014-11-15 16:45:02.346088
+User return code: 34
+System return code: 0
+Refuse data length: 91
+Refuse data: 
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=12514)(ERROR_STACK=(ERROR=(C
+    ODE=12514)(EMFI=4))))
+
+<--- Received 574 bytes - Data packet  timestamp=014-11-15 16:45:26.457923
+
+---> Send 306 bytes - Data packet  timestamp=014-11-15 16:45:26.461610
+
+<--- Received 206 bytes - Connect packet  timestamp=014-11-15 16:45:29.238417
+Connect data length: 148
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=stop)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=1866
+    47552)))
+
+---> Send 61 bytes - Redirect packet  timestamp=014-11-15 16:45:29.239794
+Redirect data length: 51
+Redirect Data: 
+    (DESCRIPTION=(ADDRESS=(PROTOCOL=ipc)(KEY=#6252.2)))
+
+<--- Received 206 bytes - Connect packet  timestamp=014-11-15 16:45:29.243731
+Connect data length: 148
+Connect Data: 
+    (DESCRIPTION=(CONNECT_DATA=(CID=(PROGRAM=)(HOST=ora11net01.jks.com)(US
+    ER=oracle))(COMMAND=stop)(ARGUMENTS=64)(SERVICE=LISTENER)(VERSION=1866
+    47552)))
+
+---> Send 77 bytes - Accept packet  timestamp=014-11-15 16:45:29.244469
+Connect data length: 45
+Connect data: (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0))
+
+<--- Received 11 bytes - Marker packet  timestamp=014-11-15 16:45:29.245318
+
+---> Send 71 bytes - Data packet  timestamp=014-11-15 16:45:31.464201
+    (DESCRIPTION=(TMP=)(VSNNUM=186647552)(ERR=0)(USECKPFILE=0)),,
+
+
+----------------------
+Trace File Statistics:
+----------------------
+Start Timestamp : 014-11-15 16:44:06.389016
+End Timestamp   : 014-11-15 16:45:31.464201
+Total number of Sessions: 19
+
+DATABASE:
+  Operation Count:    0 OPENS,     0 PARSES,     0 EXECUTES,     0 FETCHES
+
+
+ORACLE NET SERVICES:
+  Total Calls  :        38 sent,         30 received,           0 oci
+  Total Bytes  :      9881 sent,      10062 received
+    Average Bytes:       260 sent per packet,        335 received per packet
+    Maximum Bytes:      1137 sent,       5354 received
+
+  Grand Total Packets:     38  sent,      30 received
+
+
+    *************************************************************************
+    *                    Trace Assistant has completed                      *
+    *************************************************************************

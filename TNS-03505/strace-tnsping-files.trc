@@ -1,0 +1,9 @@
+
+[jkstill@ora11net01 sqlnet]$ strace -e trace=access,open,stat tnsping no-such-sid  2>&1 >/dev/null | grep '\.ora' | cut -f2 -d\" | sort | uniq -c
+      1 /etc/tnsnames.ora
+      3 /home/jkstill/.tnsnames.ora
+      1 /u01/app/oracle/product/11.2.0/db/ldap/admin/fips.ora
+      2 /u01/app/oracle/product/11.2.0/db/ldap/admin/ldap.ora
+      6 /u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora
+      4 /u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora
+      3 /u01/app/oracle/product/11.2.0/db/network/admin/tnsnames.ora

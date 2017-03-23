@@ -1,0 +1,54 @@
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=js03)(CID=(PROGRAM=sqlplus)(HOST=ora11net01.jks.com)(USER=jkstill))))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 11.2.0.4.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 11.2.0.4.0 - Production
+  Time: 15-NOV-2014 16:12:05
+  Tracing to file: /u01/app/oracle/product/11.2.0/db/network/log/client/cli_4110.trc
+  Tns error struct:
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SERVICE_NAME=junk)(CID=(PROGRAM=sqlplus)(HOST=ora11net01.jks.com)(USER=jkstill)))(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.47)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 11.2.0.4.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 11.2.0.4.0 - Production
+  Time: 15-NOV-2014 16:17:07
+  Tracing to file: /u01/app/oracle/product/11.2.0/db/network/log/client/cli_4399.trc
+  Tns error struct:
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0
+
+
+***********************************************************************
+Fatal NI connect error 12514, connecting to:
+ (DESCRIPTION=(CONNECT_DATA=(SERVICE_NAME=junk)(CID=(PROGRAM=sqlplus)(HOST=ora11net01.jks.com)(USER=jkstill)))(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.47)(PORT=1521)))
+
+  VERSION INFORMATION:
+	TNS for Linux: Version 11.2.0.4.0 - Production
+	TCP/IP NT Protocol Adapter for Linux: Version 11.2.0.4.0 - Production
+  Time: 15-NOV-2014 16:18:35
+  Tracing to file: /u01/app/oracle/product/11.2.0/db/network/log/client/cli_4478.trc
+  Tns error struct:
+    ns main err code: 12564
+    TNS-12564: TNS:connection refused
+    ns secondary err code: 0
+    nt main err code: 0
+    nt secondary err code: 0
+    nt OS err code: 0

@@ -1,0 +1,14 @@
+
+strace -e trace=open,stat,access tnsping no-such-sid 2>&1  >/dev/null | grep '\.ora' | cut -f2 -d\" | cut -f1 -d\" | uniq 
+
+/u01/app/oracle/product/11.2.0/db/network/admin/sqlnet.ora
+/home/jkstill/.tnsnames.ora
+/etc/tnsnames.ora
+/u01/app/oracle/product/11.2.0/db/network/admin/tnsnames.ora
+/home/jkstill/.tnsnames.ora
+/u01/app/oracle/product/11.2.0/db/network/admin/tnsnames.ora
+/u01/app/oracle/product/11.2.0/db/ldap/admin/fips.ora
+/u01/app/oracle/product/11.2.0/db/ldap/admin/ldap.ora
+/u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora
+/u01/app/oracle/product/11.2.0/db/ldap/admin/ldap.ora
+/u01/app/oracle/product/11.2.0/db/network/admin/ldap.ora

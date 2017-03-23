@@ -1,0 +1,8 @@
+
+
+The files searched for a database name vary dependent on the following
+
+- is TNS_ADMIN set
+- does /etc/tnsnames.ora exist (/var/opt/oracle on Solaris)
+
+SQL*NET PACKET STRUCTURE: NS PACKET HEADER (Doc ID 1007807.6)

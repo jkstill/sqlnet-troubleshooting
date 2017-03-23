@@ -1,0 +1,42 @@
+
+== Using perf rather than strace ==
+
+not as intrusive
+
+to use as non-root user:
+
+as root:
+  echo 0 > /proc/sys/kernel/perf_event_paranoid
+
+#############################################################
+
+If there are two versions of perf...
+
+ie.
+  /usr/sbin/perf
+  /usr/bin/perf
+
+Determine which to use, possibly /usr/sbin/perf
+
+[jkstill@ora11net01 sqlnet]$ uname -r
+2.6.32-100.34.1.el6uek.x86_64
+
+[jkstill@ora11net01 sqlnet]$ /usr/bin/perf version
+perf version 2.6.32-131.0.15.el6.x86_64.debug
+[jkstill@ora11net01 sqlnet]$ 
+[jkstill@ora11net01 sqlnet]$ /usr/sbin/perf version
+perf version 0.0.2.PERF
+
+In this case the /usr/sbin/perf version worked properly - no output from /usr/bin/perf report
+
+eg.
+/usr/bin/perf record ls -l
+/usr/bin/perf report
+
+-- no output
+
+using /usr/sbin/perf there was a report
+
+#############################################################
+
+Aeroquip AQP High-Pressure Hose FCG0615
