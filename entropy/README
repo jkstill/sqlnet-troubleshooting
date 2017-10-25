@@ -1,0 +1,173 @@
+
+
+How To Configure Database JVM (JavaVM) To Use /dev/urandom (In Order To Avoid JDBC Connection Delays Due To Lack Of Random Number Entropy) (Doc ID 1594701.1)
+
+
+== Build and run Java Program
+
+
+export PATH=$PATH:$ORACLE_HOME/jdk/bin
+export CLASSPATH=./:$ORACLE_HOME/jdbc/lib/ojdbc6.jar
+javac OracleCon.java
+
+== Force used of random or urandome
+
+java -Djava.security.egd=file:/dev/random -Dsecurerandom.source=file:/dev/random  OracleCon
+
+java -Djava.security.egd=file:/dev/urandom -Dsecurerandom.source=file:/dev/urandom  OracleCon
+
+
+== Watch Entropy
+
+watch --interval 1 cat /proc/sys/kernel/random/entropy_avail
+
+
+===========================================================
+
+
+How To Configure Database JVM (JavaVM) To Use /dev/urandom (In Order To Avoid JDBC Connection Delays Due To Lack Of Random Number Entropy) (Doc ID 1594701.1)
+
+
+export PATH=$PATH:$ORACLE_HOME/jdk/bin
+export CLASSPATH=./:$ORACLE_HOME/jdbc/lib/ojdbc6.jar
+javac OracleCon.java
+java OracleCon
+
+=================
+// OraclCon.java
+
+import oracle.jdbc.*;
+import java.sql.*;
+import oracle.jdbc.pool.OracleDataSource;
+
+class OracleCon{
+   public static void main(String args[]){
+      try{
+         Class.forName("oracle.jdbc.driver.OracleDriver");
+
+         OracleDataSource ods = new OracleDataSource();
+         ods.setURL("jdbc:oracle:thin:scott/tiger@oravm01:1521:oravm1");
+         Connection con = ods.getConnection();
+
+         /*
+         Statement stmt=con.createStatement();
+
+         ResultSet rs=stmt.executeQuery("select * from emp");
+         while(rs.next())
+         System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
+         */
+
+         con.close();
+
+      }
+
+      catch(Exception e){ System.out.println(e);}
+
+   }
+}
+
+===================
+
+javac OracleCon.java
+
+============================
+
+watch --interval 1 cat /proc/sys/kernel/random/entropy_avail
+
+
+time strace -tt -T -o random-entropy.trc dd if=/dev/random bs=16 iflag=fullblock count=16 of=/dev/null
+
+time strace -tt -T -o urandom-entropy.trc dd if=/dev/urandom bs=16 iflag=fullblock count=16 of=/dev/null
+
+
+============================
+
+
+After 30 minutes I killed the /dev/random test
+
+jkstill@poirot ~/presentations/sqlnet-troubleshooting-files/entropy $ bash entropy-test.sh
+entropy-test.sh: line 3:  4929 Terminated              strace -tt -T -o random-entropy.trc dd if=/dev/random bs=16 iflag=fullblock count=16 of=/dev/null
+
+real    28m1.870s
+user    0m0.004s
+sys     0m0.000s
+16+0 records in
+16+0 records out
+256 bytes copied, 0.000649902 s, 394 kB/s
+
+real    0m0.004s
+user    0m0.000s
+sys     0m0.000s
+
+
+======================================
+
+oracle@poirot ~ $ find /u01/app/oracle/product/12.1.0/c12/ -type f -print0 | xargs -0 grep securerandom.source
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk6/lib/security/java.security:# the securerandom.source property. If an exception occurs when
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk6/lib/security/java.security:securerandom.source=file:/dev/urandom
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk6/lib/security/java.security:# Specifying this system property will override the securerandom.source
+Binary file /u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk6/admin/classes.bin matches
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk7/lib/security/java.security:# the securerandom.source property. If an exception occurs when
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk7/lib/security/java.security:securerandom.source=file:/dev/urandom
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk7/lib/security/java.security:# Specifying this system property will override the securerandom.source
+Binary file /u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk7/admin/classes.bin matches
+Binary file /u01/app/oracle/product/12.1.0/c12/jdk/lib/ct.sym matches
+Binary file /u01/app/oracle/product/12.1.0/c12/jdk/jre/lib/rt.jar matches
+/u01/app/oracle/product/12.1.0/c12/jdk/jre/lib/security/java.security:# the securerandom.source property. If an exception occurs when
+/u01/app/oracle/product/12.1.0/c12/jdk/jre/lib/security/java.security:securerandom.source=file:/dev/urandom
+/u01/app/oracle/product/12.1.0/c12/jdk/jre/lib/security/java.security:# Specifying this system property will override the securerandom.source
+Binary file /u01/app/oracle/product/12.1.0/c12/jdk/jre/lib/plugin.jar matches
+Binary file /u01/app/oracle/product/12.1.0/c12/jdk/jre/lib/deploy.jar matches
+
+===================================
+
+Change all /dev/urandom to /dev/./urandom
+
+The reason for doing this is that /dev/urandom is a magic string in Java, and it will simply then read /dev/random
+
+Changing it toe 
+
+oracle@poirot ~ $ grep ^securerandom.source $ORACLE_HOME/javavm/jdk/jdk6/lib/security/java.security $ORACLE_HOME/javavm/jdk/jdk6/lib/security/java.security $ORACLE_HOME/javavm/jdk/jdk6/lib/security/java.security $ORACLE_HOME/javavm/jdk/jdk7/lib/security/java.security $ORACLE_HOME/javavm/jdk/jdk7/lib/security/java.security $ORACLE_HOME/javavm/jdk/jdk7/lib/security/java.security $ORACLE_HOME/jdk/jre/lib/security/java.security $ORACLE_HOME/jdk/jre/lib/security/java.security $ORACLE_HOME/jdk/jre/lib/security/java.security
+
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk6/lib/security/java.security:securerandom.source=file:/dev/./urandom
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk6/lib/security/java.security:securerandom.source=file:/dev/./urandom
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk6/lib/security/java.security:securerandom.source=file:/dev/./urandom
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk7/lib/security/java.security:securerandom.source=file:/dev/./urandom
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk7/lib/security/java.security:securerandom.source=file:/dev/./urandom
+/u01/app/oracle/product/12.1.0/c12/javavm/jdk/jdk7/lib/security/java.security:securerandom.source=file:/dev/./urandom
+/u01/app/oracle/product/12.1.0/c12/jdk/jre/lib/security/java.security:securerandom.source=file:/dev/./urandom
+/u01/app/oracle/product/12.1.0/c12/jdk/jre/lib/security/java.security:securerandom.source=file:/dev/./urandom
+/u01/app/oracle/product/12.1.0/c12/jdk/jre/lib/security/java.security:securerandom.source=file:/dev/./urandom
+
+###############################################################################
+
+Oracle java is not being used
+
+jkstill@poirot ~/presentations/sqlnet-troubleshooting-files/entropy $ grep security.java jdbc-default.trc
+24020 15:12:23.802558 stat("/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security", {st_mode=S_IFREG|0644, st_size=26550, ...}) = 0 <0.000011>
+24020 15:12:23.802622 open("/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security", O_RDONLY) = 15 <0.000009>
+
+jkstill@poirot ~/presentations/sqlnet-troubleshooting-files/entropy $ grep security.java jdbc-urandom.trc
+23960 15:09:40.763630 stat("/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security", {st_mode=S_IFREG|0644, st_size=26550, ...}) = 0 <0.000012>
+23960 15:09:40.763687 open("/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security", O_RDONLY) = 15 <0.000009>
+
+poirot ~ # ls -l /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security
+lrwxrwxrwx 1 root root 42 Dec  7  2016 /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security -> /etc/java-8-openjdk/security/java.security
+lrwxrwxrwx 1 root root 42 Dec  7  2016 /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security -> /etc/java-8-openjdk/security/java.security
+
+poirot ~ # grep ^securerandom.source /etc/java-8-openjdk/security/java.security
+securerandom.source=file:/dev/random
+
+This is because the command 'java' is being found in the PATH before Oracle Java
+
+Either ( or maybe all )
+-- fix the path order
+-- use FQN for java
+-- edit standard java.security (/etc/java-8-openjdk/security/java.security)
+
+
+###############################################################################
+
+
+
+
