@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/env perl
 
 # Jared Still
 # 2014-11-16
@@ -6,6 +6,7 @@
 # currently for use with ADR tracefiles
 
 use strict;
+use warnings;
 use Date::Manip;
 
 my ($rcvTime,$rcvMsecs,$sndTime,$sndMsecs);
@@ -39,10 +40,13 @@ Receive packet starts followin this line:
 my $packetStart=0;
 
 while (<F>) {
-   next unless /(:\snsbasic_bsd:packet dump|:\snsbasic_brc:packet dump)\s+/;
-   print "Line: $_" if $debug;
-   chomp; # remove line termination character(s)
-   my $line = $_;  # current input line
+
+	## there is now a space before 'packet', following a bracket
+	#next unless /(:\snsbasic_bsd:\s*packet dump|:\snsbasic_brc:\s*packet dump)\s+/;
+	next unless /(\snsbasic_bsd:\s*packet dump|\snsbasic_brc:\s*packet dump)\s+/;
+	print "Line: $_" if $debug;
+	chomp; # remove line termination character(s)
+	my $line = $_;  # current input line
 
    my $packetType =  /nsbasic_brc:packet dump/ ? 'RCV' : 'SND';
    print "PacketType: $packetType\n" if $debug;
